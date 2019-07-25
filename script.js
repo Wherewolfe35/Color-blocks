@@ -1,4 +1,4 @@
-$( document ).ready(readyNow);
+$(document).ready(readyNow);
 
 console.log('js');
 
@@ -6,18 +6,21 @@ let redCount = 0;
 let yellowCount = 0;
 let greenCount = 0;
 let blueCount = 0;
+let redInput = 0;
 
-function readyNow(){
-$('#redButton').on('click', addRed);
-$('#yellowButton').on('click', addYellow);
-$('#greenButton').on('click', addGreen);
-$('#blueButton').on('click', addBlue);
+function readyNow() {
+    $('#redButton').on('click', addRed);
+    $('#yellowButton').on('click', addYellow);
+    $('#greenButton').on('click', addGreen);
+    $('#blueButton').on('click', addBlue);
+    $('.redBlock').on('click', removeRed);
 }
 
 //add to count on html when corresponding button is clicked
-function addRed(){
+function addRed() {
     console.log('Red');
-    redCount++;
+    redAmount();
+    redCount = redCount + redInput;
     let reds = $('#redCount');
     reds.empty();
     reds.append(redCount);
@@ -50,3 +53,12 @@ function addBlue() {
     blues.append(blueCount);
     $('#blocks').append(`<div class= "blueBlock" >` + `</div>`);
 } //end addBlue
+
+//delete blocks
+function removeRed() {
+    console.log('Red Removed');
+}
+
+function redAmount() {
+    redInput = Number($('#redAmount').val());
+}

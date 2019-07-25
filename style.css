@@ -1,32 +1,23 @@
 
 div {
     display: inline-block;
+    height: 100px;
+    width: 100px;
+    margin: 5px 10px 0px 0px;
 }
 
 .redBlock{
     background-color: red;
-    height: 100px;
-    width: 100px;
-    margin: 5px 10px 0px 0px;
 }
 
 .yellowBlock{
     background-color: yellow;
-    height: 100px;
-    width: 100px;
-    margin: 5px 10px 0px 0px;
 }
 
 .greenBlock {
     background-color: green;
-    height: 100px;
-    width: 100px;
-    margin: 5px 10px 0px 0px;
 }
 
 .blueBlock {
     background-color: blue;
-    height: 100px;
-    width: 100px;
-    margin: 5px 10px 0px 0px;
 }
