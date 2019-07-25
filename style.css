@@ -1,0 +1,31 @@
+
+div {
+    display: inline-block;
+}
+
+.redBlock{
+    background-color: red;
+    height: 100px;
+    width: 100px;
+    margin-right: 10px;
+}
+
+.yellowBlock{
+    background-color: yellow;
+    height: 100px;
+    width: 100px;
+    margin-right: 10px;
+}
+
+.greenBlock {
+    background-color: green;
+    height: 100px;
+    width: 100px;
+    margin-right: 10px;
+}
+
+.blueBlock {
+    background-color: blue;
+    height: 100px;
+    width: 100px;
+}
