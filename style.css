@@ -1,5 +1,5 @@
 
-div {
+li {
     display: inline-block;
     height: 100px;
     width: 100px;
@@ -20,4 +20,12 @@ div {
 
 .blueBlock {
     background-color: blue;
+}
+
+input{
+    width: 40px;
+}
+
+.blocksHere {
+    margin: none;
 }

@@ -13,18 +13,22 @@
 
 <body>
     <header>
+        <h2>Let's play count the color blocks!</h2>
         <p>Red Count: <span id = "redCount" >0</span></p>
         <p>Yellow Count: <span id = "yellowCount" >0</span></p>
         <p>Green Count: <span id = "greenCount" >0</span></p>
         <p>Blue Count: <span id = "blueCount" >0</span></p>
     </header>
     <section class= "buttons" >
-        <button id = "redButton" >Red</button> <input type="number" id = 'redAmount' placeholder = '1'>
-        <button id = "yellowButton" >Yellow</button>
-        <button id = "greenButton" >Green</button>
-        <button id = "blueButton" >Blue</button>
+        <button id = "redButton" >Red</button> <input type="number" id = 'redAmount' placeholder = '0'>
+        <button id = "yellowButton" >Yellow</button><input type="number" id='yellowAmount' placeholder='0'>
+        <button id = "greenButton" >Green</button><input type="number" id='greenAmount' placeholder='0'>
+        <button id = "blueButton" >Blue</button><input type="number" id='blueAmount' placeholder='0'>
     </section>
     <section id= "blocks" >
+        <ol class="blocksHere">
+<!-- blocks will go here -->
+        </ol>
         <!-- <div class= "redBlock" ></div>
         <div class= "yellowBlock" ></div>
         <div class= "greenBlock" ></div>

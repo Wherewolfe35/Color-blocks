@@ -13,52 +13,91 @@ function readyNow() {
     $('#yellowButton').on('click', addYellow);
     $('#greenButton').on('click', addGreen);
     $('#blueButton').on('click', addBlue);
-    $('.redBlock').on('click', removeRed);
+    $('#blocks').on('click', '.redBlock', removeRed);
+    $('#blocks').on('click', '.yellowBlock', removeYellow);
+    $('#blocks').on('click', '.greenBlock', removeGreen);
+    $('#blocks').on('click', '.blueBlock', removeBlue);
 }
 
 //add to count on html when corresponding button is clicked
 function addRed() {
-    console.log('Red');
-    redAmount();
-    redCount = redCount + redInput;
+    redInput = +($('#redAmount').val());
+    console.log('Red', redInput);
+    redCount += redInput;
     let reds = $('#redCount');
     reds.empty();
     reds.append(redCount);
-    $('#blocks').append(`<div class= "redBlock" >` + `</div>`);
+    for(let i = redInput; i > 0; i--){
+    $('.blocksHere').append(`<li class= "redBlock" ></li>`);
+    }
 } //end addRed
 
 function addYellow() {
+    yellowInput = +($('#yellowAmount').val());
     console.log('Yellow');
-    yellowCount++;
+    yellowCount += yellowInput;
     let yellows = $('#yellowCount');
     yellows.empty();
     yellows.append(yellowCount);
-    $('#blocks').append(`<div class= "yellowBlock" >` + `</div>`);
+    for (let i = yellowInput; i > 0; i--){
+    $('.blocksHere').append(`<li class= "yellowBlock" ></li>`);
+    }
 } //end addYellow
 
 function addGreen() {
+    greenInput = +($('#greenAmount').val());
     console.log('Green');
-    greenCount++;
+    greenCount += greenInput;
     let greens = $('#greenCount');
     greens.empty();
     greens.append(greenCount);
-    $('#blocks').append(`<div class= "greenBlock" >` + `</div>`);
+    for (let i = greenInput; i > 0; i--){
+    $('.blocksHere').append(`<li class= "greenBlock" ></li>`);
+    }
 } //end addGreen
 
 function addBlue() {
+    blueInput = +($('#blueAmount').val());
     console.log('Blue');
-    blueCount++;
+    blueCount += blueInput;
     let blues = $('#blueCount');
     blues.empty();
     blues.append(blueCount);
-    $('#blocks').append(`<div class= "blueBlock" >` + `</div>`);
+    for (let i = blueInput; i > 0; i--){
+    $('.blocksHere').append(`<li class= "blueBlock" ></li>`);
+    }
 } //end addBlue
 
 //delete blocks
 function removeRed() {
     console.log('Red Removed');
+    $(this).remove();
+    redCount--;
+    let reds = $('#redCount');
+    reds.empty();
+    reds.append(redCount);
 }
-
-function redAmount() {
-    redInput = Number($('#redAmount').val());
+function removeYellow() {
+    console.log('Yellow Removed');
+    $(this).remove();
+    yellowCount--;
+    let yellows = $('#yellowCount');
+    yellows.empty();
+    yellows.append(yellowCount);
+}
+function removeGreen() {
+    console.log('Green Removed');
+    $(this).remove();
+    greenCount--;
+    let greens = $('#greenCount');
+    greens.empty();
+    greens.append(greenCount);
+}
+function removeBlue() {
+    console.log('Blue Removed');
+    $(this).remove();
+    blueCount--;
+    let blues = $('#blueCount');
+    blues.empty();
+    blues.append(blueCount);
 }
