@@ -12,10 +12,7 @@ function readyNow() {
     $('#yellowButton').on('click', addYellow);
     $('#greenButton').on('click', addGreen);
     $('#blueButton').on('click', addBlue);
-    $('#blocks').on('click', '.redBlock', removeRed);
-    $('#blocks').on('click', '.yellowBlock', removeYellow);
-    $('#blocks').on('click', '.greenBlock', removeGreen);
-    $('#blocks').on('click', '.blueBlock', removeBlue);
+    $('#blocks').on('click', '.aBlock', removeBlock);
 }
 
 //add to count on html when corresponding button is clicked
@@ -25,7 +22,7 @@ function addRed() {
     console.log('Red', redInput);
     redCount += redInput;
     //make sure counter does not get below 0
-    if (redCount < 0){
+    if (redCount < 0) {
         console.log('whoops!');
         redCount = 0;
     }
@@ -34,12 +31,12 @@ function addRed() {
     reds.empty();
     reds.append(redCount);
     //allow for multiple block additions
-    for(let i = redInput; i > 0; i--){
-    $('.blocksHere').append(`<li class= "redBlock" ></li>`);
+    for (let i = redInput; i > 0; i--) {
+        $('.blocksHere').append(`<li class= "redBlock aBlock" ></li>`);
     }
     //allow for multiple block removals
-    if (redInput < 0){
-        for ( let i = redInput; i < 0; i++){
+    if (redInput < 0) {
+        for (let i = redInput; i < 0; i++) {
             $('.redBlock').last().remove();
         }
     }
@@ -56,8 +53,8 @@ function addYellow() {
     let yellows = $('#yellowCount');
     yellows.empty();
     yellows.append(yellowCount);
-    for (let i = yellowInput; i > 0; i--){
-    $('.blocksHere').append(`<li class= "yellowBlock" ></li>`);
+    for (let i = yellowInput; i > 0; i--) {
+        $('.blocksHere').append(`<li class= "yellowBlock aBlock" ></li>`);
     }
     if (yellowInput < 0) {
         for (let i = yellowInput; i < 0; i++) {
@@ -77,8 +74,8 @@ function addGreen() {
     let greens = $('#greenCount');
     greens.empty();
     greens.append(greenCount);
-    for (let i = greenInput; i > 0.; i--){
-    $('.blocksHere').append(`<li class= "greenBlock" ></li>`);
+    for (let i = greenInput; i > 0.; i--) {
+        $('.blocksHere').append(`<li class= "greenBlock aBlock" ></li>`);
     }
     if (greenInput < 0) {
         for (let i = greenInput; i < 0; i++) {
@@ -98,8 +95,8 @@ function addBlue() {
     let blues = $('#blueCount');
     blues.empty();
     blues.append(blueCount);
-    for (let i = blueInput; i > 0; i--){
-    $('.blocksHere').append(`<li class= "blueBlock" ></li>`);
+    for (let i = blueInput; i > 0; i--) {
+        $('.blocksHere').append(`<li class= "blueBlock aBlock" ></li>`);
     }
     if (blueInput < 0) {
         for (let i = blueInput; i < 0; i++) {
@@ -109,37 +106,33 @@ function addBlue() {
 } //end addBlue
 
 //delete blocks
-function removeRed() {
-    console.log('Red Removed');
+function removeBlock() {
     //remove block from DOM
     $(this).remove();
     //update counter on the DOM
-    redCount--;
-    let reds = $('#redCount');
-    reds.empty();
-    reds.append(redCount);
-}
-function removeYellow() {
-    console.log('Yellow Removed');
-    $(this).remove();
-    yellowCount--;
-    let yellows = $('#yellowCount');
-    yellows.empty();
-    yellows.append(yellowCount);
-}
-function removeGreen() {
-    console.log('Green Removed');
-    $(this).remove();
-    greenCount--;
-    let greens = $('#greenCount');
-    greens.empty();
-    greens.append(greenCount);
-}
-function removeBlue() {
-    console.log('Blue Removed');
-    $(this).remove();
-    blueCount--;
-    let blues = $('#blueCount');
-    blues.empty();
-    blues.append(blueCount);
+    if ($(this).hasClass('redBlock')) {
+        console.log('Red Removed');
+        redCount--;
+        let reds = $('#redCount');
+        reds.empty();
+        reds.append(redCount);
+    } else if ($(this).hasClass('yellowBlock')){
+        console.log('Yellow Removed');
+        yellowCount--;
+        let yellows = $('#yellowCount');
+        yellows.empty();
+        yellows.append(yellowCount);
+    } else if ($(this).hasClass('greenBlock')) {
+        console.log('Green Removed');
+        greenCount--;
+        let greens = $('#greenCount');
+        greens.empty();
+        greens.append(greenCount);
+    } else if ($(this).hasClass('blueBlock')) {
+        console.log('Blue Removed');
+        blueCount--;
+        let blues = $('#blueCount');
+        blues.empty();
+        blues.append(blueCount);
+    }
 }
